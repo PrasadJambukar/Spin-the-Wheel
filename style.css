@@ -1,0 +1,95 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: lightseagreen;
+}
+
+.container{
+    width: 400px;
+    height: 400px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.container .spin-button{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #18c1f0;
+    border-radius: 50%;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: brown;
+    letter-spacing: 0.1em;
+    border: 4px solid #000(0, 0, 0, 0.75);
+    cursor: pointer;
+    user-select: none;
+}
+.container .spin-button::before{
+    content: '';
+    position: absolute;
+    top: -28px;
+    width: 20px;
+    height: 30px;
+    background: #f5f3f3;
+    clip-path: polygon(50% 0%, 15% 100%, 99% 100%);
+
+}
+.container .wheel{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #000000bc;
+    position: absolute;
+    top: 0;
+    left: 0; 
+    overflow: hidden;
+    box-shadow: 0 0 0 5px #333,
+    0 0 0 15px #fff,
+    0 0 0 18px #111;   
+}
+.container .wheel .wheel-slice{
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background:var(--clr);
+    transform-origin: bottom right;
+    transform: rotate(calc(45deg * var(--i)));
+    clip-path: polygon(0 0, 56% 0, 100% 100%,0 56%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    cursor: pointer;
+}
+
+.container .wheel  .wheel-slice span{
+    position: relative;
+    transform: rotate(45deg);
+    font-size: 2em;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 3px 5px 2px rgba(0, 0, 0, 0.15);
+}
+.container .wheel .wheel-slice span::after{
+    position: absolute;
+    font-size: 0.75em;
+    font-weight: 600;
+}
+
